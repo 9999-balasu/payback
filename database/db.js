@@ -1,6 +1,6 @@
 import { connect } from "mongoose";
 
-const connectToMongo = async () => {
+/*const connectToMongo = async () => {
   try {
     await connect('mongodb://localhost:27017', {
         dbName : "PaymentGateway"
@@ -10,5 +10,26 @@ const connectToMongo = async () => {
     console.log(error);
   }
 }
+
+export default connectToMongo;*/
+
+
+
+//import { connect } from "mongoose";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+
+dotenv.config();  // Load environment variables from .env file
+
+const connectToMongo = async () => {
+  try {
+    await connect(process.env.MONGO_URI, {
+      dbName: "PaymentGateway"
+    });
+    console.log("---*** Database Connected Successfully ***---");
+  } catch (error) {
+    console.error("MongoDB Connection Error:", error);
+  }
+};
 
 export default connectToMongo;
