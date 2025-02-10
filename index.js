@@ -35,7 +35,7 @@ import payment from './routes/payment.js';
 connectToMongo();
 const app = express();
 
-const port = process.env.PORT || 3000; // Ensure a default port
+const port = process.env.PORT  // Ensure a default port
 // middleware
 app.use(express.json());
 app.use(cors());
